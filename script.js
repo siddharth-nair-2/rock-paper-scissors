@@ -1,4 +1,6 @@
 let playerScore = 0, computerScore = 0;
+let playerSelection;
+let computerSelection;
 
 function computerPlay() {
     var options = ["Rock", "Paper", "Scissors"];
@@ -54,11 +56,21 @@ function singleRound(playerSelection, computerSelection) {
     }
 }
 
-const playerSelection = "paper";
-const computerSelection = computerPlay();
-
-console.log(singleRound(playerSelection, computerSelection));
 
 function game() {
-    
+    for(let i = 0; i < 5; i++){
+        playerSelection = prompt("Rock, Paper or Scissors?");
+        computerSelection = computerPlay();
+        console.log(singleRound(playerSelection, computerSelection));
+    }
+
+    let str = "Final scores are:\n User: " + playerScore + "\n Computer: " + computerScore;
+    let result;
+    if(playerScore > computerScore) result = "\nYou are the winner!";
+    else if(computerScore > playerScore) result = "\nYou lost! The computer is the winner!";
+    else result = "\nWow! It was a draw!"
+
+    return str + result;
 }
+
+console.log(game());
